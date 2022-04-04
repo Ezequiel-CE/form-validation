@@ -1,33 +1,33 @@
 import React from "react";
-import useInputPractice from "../hooks/use-inputePractice";
+import useInput from "../hooks/use-input";
 
 const BasicForm = () => {
   const {
     value: enteredFistName,
     isValid: enteredFistNameIsValid,
     hasError: firstNameInputHasError,
-    onChangeHandler: firstNameChangeHandler,
+    valueChangeHandler: firstNameChangeHandler,
     onBlurHandler: firstNameOnBlurHandler,
     reset: firstNameReset,
-  } = useInputPractice((value) => value.trim() !== "");
+  } = useInput((value) => value.trim() !== "");
 
   const {
     value: enteredLastName,
     isValid: enteredLastNameIsValid,
     hasError: lastNameInputHasError,
-    onChangeHandler: lastNameChangeHandler,
+    valueChangeHandler: lastNameChangeHandler,
     onBlurHandler: lastNameOnBlurHandler,
     reset: lastNameReset,
-  } = useInputPractice((value) => value.trim() !== "");
+  } = useInput((value) => value.trim() !== "");
 
   const {
     value: enteredEmail,
     isValid: enteredEmailIsValid,
     hasError: emailInputHasError,
-    onChangeHandler: emailChangeHandler,
+    valueChangeHandler: emailChangeHandler,
     onBlurHandler: emailOnBlurHandler,
     reset: emailReset,
-  } = useInputPractice((value) => /\S+@\S+\.\S+/.test(value));
+  } = useInput((value) => /\S+@\S+\.\S+/.test(value));
 
   let formValidity = false;
 

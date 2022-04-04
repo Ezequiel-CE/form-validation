@@ -4,10 +4,10 @@ const initialState = { value: "", isTouch: false };
 
 const inputReducer = (state, action) => {
   if (action.type === "INPUT") {
-    return { value: action.value };
+    return { value: action.value, isTouch: state.isTouch };
   }
   if (action.type === "BLUR") {
-    return { isTouch: true };
+    return { isTouch: true, value: state.value };
   }
 
   if (action.type === "RESET") {
@@ -27,7 +27,7 @@ const useInput = (validateValue) => {
     dispatch({ type: "INPUT", value: e.target.value });
   };
 
-  const onBlurHandler = (e) => {
+  const onBlurHandler = () => {
     dispatch({ type: "BLUR" });
   };
 
